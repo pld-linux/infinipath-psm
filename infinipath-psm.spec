@@ -1,12 +1,12 @@
 Summary:	QLogic PSM libraries
 Summary(pl.UTF-8):	Biblioteki QLogic PSM
 Name:		infinipath-psm
-Version:	1.13
+Version:	1.14
 Release:	1
 License:	BSD or GPL v2
 Group:		Networking/Utilities
 Source0:	http://www.openfabrics.org/downloads/infinipath-psm/%{name}-%{version}.tar.gz
-# Source0-md5:	550c00ccc8d5df036611c0c2a3320964
+# Source0-md5:	76b83f3d1c0ab12d02e9680e514f4b68
 URL:		http://www.openfabrics.org/
 BuildRequires:	libuuid-devel
 ExclusiveArch:	%{ix86} %{x8664}
