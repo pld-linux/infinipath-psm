@@ -1,0 +1,12 @@
+Workaround duplicate member name in two anonymous structs in union.
+--- infinipath-psm-1.14/ptl_ips/ips_proto_header.h.orig	2011-01-17 14:52:40.000000000 +0100
++++ infinipath-psm-1.14/ptl_ips/ips_proto_header.h	2015-02-20 17:35:14.310800312 +0100
+@@ -78,7 +78,7 @@
+ 	    __u16 amhdr_hidx  : 8; 
+ 	    __u16 amhdr_nargs : 3;
+ 	    __u16 amhdr_flags : 3; /* Reduced from 5 bits previously */
+-	    __u16 dst_subcontext : 2; /* Destination subcontext */
++	    __u16 adst_subcontext : 2; /* Destination subcontext */
+ 	  };
+ 	  __u16 mqhdr_org;
+ 	};

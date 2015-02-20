@@ -1,0 +1,11 @@
+--- infinipath-psm-1.14/Makefile.orig	2011-01-17 14:52:39.000000000 +0100
++++ infinipath-psm-1.14/Makefile	2015-02-20 23:05:31.813301987 +0100
+@@ -236,7 +236,7 @@
+ 	$(CC) $(LDFLAGS) -o $@ -Wl,-soname=${TARGLIB}.so.${MAJOR} -shared -Wl,--unique='*fastpath*' \
+ 		${${TARGLIB}-objs} _revision.o -Lipath $(LDLIBS)
+ 	@leaks=`nm $@ | grep ' [DT] ' | \
+-	 grep -v -e ' [DT] \(_fini\|_init\|infinipath_\|ips_\|psmi\|__psmi\?_\|_\rest.pr\|_save.pr\|kcopy\)'`; \
++	 grep -v -e ' [DT] \(_edata\|_fini\|_init\|infinipath_\|ips_\|psmi\|__psmi\?_\|_\rest.pr\|_save.pr\|kcopy\)'`; \
+ 	 if test -n "$$leaks"; then echo "Build failed, leaking symbols:"; echo "$$leaks"; exit 1; fi
+ 
+ %.o: %.c

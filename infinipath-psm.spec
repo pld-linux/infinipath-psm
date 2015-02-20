@@ -7,6 +7,9 @@ License:	BSD or GPL v2
 Group:		Networking/Utilities
 Source0:	http://www.openfabrics.org/downloads/infinipath-psm/%{name}-%{version}.tar.gz
 # Source0-md5:	76b83f3d1c0ab12d02e9680e514f4b68
+Patch0:		%{name}-union.patch
+Patch1:		%{name}-format.patch
+Patch2:		%{name}-link.patch
 URL:		http://www.openfabrics.org/
 BuildRequires:	libuuid-devel
 ExclusiveArch:	%{ix86} %{x8664}
@@ -45,6 +48,9 @@ Pliki nagłówkowe PSM API.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__make} \

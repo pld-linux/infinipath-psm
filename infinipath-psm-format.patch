@@ -1,0 +1,33 @@
+--- infinipath-psm-1.14/psm_context.c.orig	2011-01-17 14:52:39.000000000 +0100
++++ infinipath-psm-1.14/psm_context.c	2015-02-20 17:33:36.680804461 +0100
+@@ -377,7 +377,7 @@
+ 		else
+ 		    errmsg = "Hardware not found";
+ 
+-		psmi_handle_error(context->ep, err, errmsg);
++		psmi_handle_error(context->ep, err, "%s", errmsg);
+ 	    }
+ 	}
+     }
+--- infinipath-psm-1.14/psm_ep_connect.c.orig	2011-01-17 14:52:39.000000000 +0100
++++ infinipath-psm-1.14/psm_ep_connect.c	2015-02-20 17:47:12.077436859 +0100
+@@ -255,7 +255,7 @@
+ 	    }
+ 	}
+ 	errbuf[sizeof errbuf - 1] = '\0';
+-	err = psmi_handle_error(ep, err, errbuf);
++	err = psmi_handle_error(ep, err, "%s", errbuf);
+     }
+ 
+ fail:
+--- infinipath-psm-1.14/psm_utils.c.orig	2011-01-17 14:52:40.000000000 +0100
++++ infinipath-psm-1.14/psm_utils.c	2015-02-20 21:08:40.470262844 +0100
+@@ -1191,7 +1191,7 @@
+   
+  fail:
+   /* Unrecognized/unknown option */
+-  return psmi_handle_error(NULL, PSM_PARAM_ERR, err_string);
++  return psmi_handle_error(NULL, PSM_PARAM_ERR, "%s", err_string);
+ }
+ 
+ psm_error_t psmi_core_setopt(const void *core_obj, int optname, 
